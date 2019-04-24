@@ -1,5 +1,3 @@
-import './scss/nui.scss';
-
 import * as components from './components'
 import config, { setOptions } from './utils/config'
 import { use, registerComponentProps } from './utils/plugins'
