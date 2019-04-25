@@ -1,0 +1,56 @@
+@mixin base-theme () {
+    :not(input):not(textarea)::selection {
+        @include theme-component-relative() {
+            @include theme-property(background-color, accent, background);
+            @include theme-property(color, text-primary, accent);
+        }
+    }
+
+    a:not(.button) {
+        @include theme-component-relative() {
+                @include theme-property(color, primary, background);
+    
+            &:hover {
+                @include theme-property(color, primary, background, .8);
+            }
+    
+            &.accent {
+                @include theme-property(color, accent, background);
+        
+                &:hover {
+                    @include theme-property(color, accent, background, .8);
+                }
+            }
+        }
+    }
+
+    html {
+        @include theme-component() {
+            @include theme-property(background-color, background-variant);
+            @include theme-property(color, text-primary, background-variant);
+        }
+    }
+
+    .caption,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4 {
+        @include theme-component-relative() {
+            @include theme-property(color, text-accent, background-variant);
+        }
+    }
+
+    .scrollbar {
+        @include theme-component() {
+            &::-webkit-scrollbar-corner,
+            &::-webkit-scrollbar-track {
+                @include theme-property(background, scrollbar-background, background-variant);
+            }
+    
+            &::-webkit-scrollbar-thumb {
+                @include theme-property(background, scrollbar, background-variant);
+            }
+        }
+    }
+}

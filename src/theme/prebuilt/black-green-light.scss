@@ -1,0 +1,8 @@
+@import "../engine";
+
+@include register-theme("default", (
+    primary: get-palette-color(grey, 900),
+    accent: get-palette-color(lightgreen, A700)
+));
+
+@import "../all";

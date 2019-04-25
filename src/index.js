@@ -23,7 +23,24 @@
 // use(nui)
 
 // export default nui
-import './scss/nui.scss'
 
-export * from './components'
-export * from './install'
+
+// import './scss/nui.scss'
+
+// export * from './components'
+// export * from './install'
+
+import nui from './nui'
+import * as Components from './components'
+
+let VueNui = Vue => {
+  nui(Vue)
+
+  Object.values(Components).forEach((Component) => {
+    Vue.use(Component)
+  })
+}
+
+VueNui.version = '__VERSION__'
+
+export default VueNui
