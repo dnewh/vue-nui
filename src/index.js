@@ -1,6 +1,4 @@
-// import * as components from './components'
-// import config, { setOptions } from './utils/config'
-// import { use, registerComponentProps } from './utils/plugins'
+import './scss/nui-build.scss';
 
 // const nui = {
 //     install(Vue, options = {}) {
