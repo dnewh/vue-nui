@@ -1,4 +1,4 @@
-import './scss/nui.scss';
+import './scss/nui-build.scss';
 
 import * as components from './components'
 import config, { setOptions } from './utils/config'
