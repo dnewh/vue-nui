@@ -8,6 +8,6 @@ export const registerComponent = (Vue, component) => {
     Vue.component(component.name, component)
 }
 
-export const registerComponentProps = (Vue, property, component) => {
+export const registerComponentProgrammatic = (Vue, property, component) => {
     Vue.prototype[property] = component
 }

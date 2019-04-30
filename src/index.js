@@ -1,44 +1,28 @@
-import './scss/nui-build.scss';
+import './scss/nui-build.scss'
 
-// const nui = {
-//     install(Vue, options = {}) {
-//         // Options
-//         setOptions(Object.assign(config, options))
-//         // Components
-//         for (let componentKey in components) {
-//             Vue.use(components[componentKey])
-//         }
-//         // Config component
-//         const nuiProgrammatic = {
-//             setOptions(options) {
-//                 setOptions(Object.assign(config, options))
-//             }
-//         }
-//         registerComponentProps(Vue, '$nui', nuiProgrammatic)
-//     }
-// }
+import * as components from './components'
 
-// use(nui)
+import config, { setOptions } from './utils/config'
+import { use, registerComponentProgrammatic } from './utils/plugins'
 
-// export default nui
-
-
-// import './scss/nui.scss'
-
-// export * from './components'
-// export * from './install'
-
-import nui from './nui'
-import * as Components from './components'
-
-let VueNui = Vue => {
-  nui(Vue)
-
-  Object.values(Components).forEach((Component) => {
-    Vue.use(Component)
-  })
+const Nui = {
+    install(Vue, options = {}) {
+        // Options
+        setOptions(Object.assign(config, options))
+        // Components
+        for (let componentKey in components) {
+            Vue.use(components[componentKey])
+        }
+        // Config component
+        const NuiProgrammatic = {
+            setOptions(options) {
+                setOptions(Object.assign(config, options))
+            }
+        }
+        registerComponentProgrammatic(Vue, '$nui', NuiProgrammatic)
+    }
 }
 
-VueNui.version = '__VERSION__'
+use(Nui)
 
-export default VueNui
+export default Nui
